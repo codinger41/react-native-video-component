@@ -56,6 +56,7 @@ class VideoPlayer extends Component {
       )
     }
   }
+
   renderPauseButton(){
     if(this.state.showControls){
       if(this.state.paused){
@@ -85,6 +86,7 @@ class VideoPlayer extends Component {
       )
     }
   }
+
   renderVideo(){
     if(this.props.video){
       return (
@@ -116,6 +118,7 @@ class VideoPlayer extends Component {
       )
     }
   }
+
   renderMultiVideoButtons () {
     if(this.state.showControls){
       if(this.props.videos && this.props.videos.length >= 1){
@@ -157,6 +160,7 @@ class VideoPlayer extends Component {
       }
     }
   }
+
   renderCaption(){
     if(this.props.caption){
       return (
@@ -166,6 +170,7 @@ class VideoPlayer extends Component {
       )
     }else return <View/>
   }
+  
   render() {
     return (
       <View 

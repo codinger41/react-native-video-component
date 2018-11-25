@@ -21,7 +21,7 @@
     "preset": "react-native"
   },
   "description": "Simple video player component with easy, slick controls.",
-  "main": "index.js",
+  "main": "videoplayer.js",
   "directories": {
     "example": "example"
   },
