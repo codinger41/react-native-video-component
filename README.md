@@ -1,7 +1,7 @@
 <h1 align="center">
 
 <p align="center">
-  <img src="assets/screenshot.png"/>
+  <img src="assets/screenshot.png" height="300px" width="300px" />
 </p>
 
 <p align="center">
@@ -14,7 +14,7 @@
 
 If this project has helped you out, please support us with a star 🌟
 </h1>
-This library is a simple react native video component that saves you the time of building video controls. It also support multiple videos!
+This library is a simple react native video component that saves you the time of building video controls. It also support multiple videos and video captions!
 
 
 ## 📖 Getting started
