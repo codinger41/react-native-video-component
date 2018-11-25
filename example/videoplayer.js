@@ -94,36 +94,38 @@ class VideoPlayer extends Component {
     }
   }
   renderMultiVideoButtons () {
-    return (
-      <View style={styles.multiVideoButtons}>
-        <TouchableOpacity
-          activeOpacity={0.7}
-          style={styles.previousButton}
-          onPress={() => {
-            this.state.activeVideoIndex !== 0 ?
+    if(this.props.videos && this.props.videos.length >= 1){
+      return (
+        <View style={styles.multiVideoButtons}>
+          <TouchableOpacity
+            activeOpacity={0.7}
+            style={styles.previousButton}
+            onPress={() => {
+              this.state.activeVideoIndex !== 0 ?
+                this.setState({
+                  activeVideo: this.props.videos[this.state.activeVideoIndex - 1],
+                  activeVideoIndex: this.state.activeVideoIndex - 1,
+                })
+              : null
+            }}
+          >
+            <Image source={require('./assets/previous.png')} />
+          </TouchableOpacity>
+          <TouchableOpacity
+            activeOpacity={0.7} 
+            style={styles.nextButton}
+            onPress={() => {
               this.setState({
-                activeVideo: this.props.videos[this.state.activeVideoIndex - 1],
-                activeVideoIndex: this.state.activeVideoIndex - 1,
+                activeVideo: this.props.videos[this.state.activeVideoIndex + 1],
+                activeVideoIndex: this.state.activeVideoIndex + 1,
               })
-            : null
-          }}
-        >
-          <Image source={require('./assets/previous.png')} />
-        </TouchableOpacity>
-        <TouchableOpacity
-          activeOpacity={0.7} 
-          style={styles.nextButton}
-          onPress={() => {
-            this.setState({
-              activeVideo: this.props.videos[this.state.activeVideoIndex + 1],
-              activeVideoIndex: this.state.activeVideoIndex + 1,
-            })
-          }}
-        >
-          <Image source={require('./assets/next.png')} />
-        </TouchableOpacity>
-      </View>
-    )
+            }}
+          >
+            <Image source={require('./assets/next.png')} />
+          </TouchableOpacity>
+        </View>
+      )
+    }
   }
   render() {
     return (

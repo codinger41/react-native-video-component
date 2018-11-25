@@ -25,8 +25,18 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <Text>
+          Multi Videos
+        </Text>
         <VideoPlayer 
           videos={videos}
+          videoContainerStyle={styles.videoContainer}
+        />
+        <Text>
+          Single Video
+        </Text>
+        <VideoPlayer 
+          video={require('./video.mp4')}
           videoContainerStyle={styles.videoContainer}
         />
       </View>
