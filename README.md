@@ -19,9 +19,9 @@ This library is a simple react native video component that saves you the time of
 
 ## 📖 Getting started
 
-`$ npm install react-native-video-component --save`
-`$ npm install react-native-video --save`
-`$ react-native link react-native-video`
+`$ npm install react-native-video-component --save` <br/>
+`$ npm install react-native-video --save` <br/>
+`$ react-native link react-native-video` <br/>
 
 ## Usage
 
