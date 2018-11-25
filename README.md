@@ -36,6 +36,7 @@ const renderPlayer = (props) => {
       videoContainerStyle={styles.videoContainer} // Usual view style object
       caption={'interesting animal videos'} // Text, can be the description of the video
       captionStyle={styles.captionStyle} // Usual text style object to style the caption
+      hideControlsTimeOut={10000} // time (in seconds) it takes before control hides
       // all other props for the <Video/> component
     />
   )

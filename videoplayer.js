@@ -23,7 +23,7 @@ class VideoPlayer extends Component {
       this.setState({
         showControls: false
       })
-    }, 3000)
+    }, this.props.hideControlsTimeOut? this.props.hideControlsTimeOut : 5000)
   }
 
   renderMuteButton(){
@@ -183,7 +183,7 @@ class VideoPlayer extends Component {
               this.setState({
                 showControls: false
               })
-            }, 3000)
+            }, this.props.hideControlsTimeOut? this.props.hideControlsTimeOut : 5000)
           }}
         >
           <View
