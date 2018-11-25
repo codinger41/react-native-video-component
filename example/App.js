@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { Platform, StyleSheet, Text, View, Dimensions, Image, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
-import VideoPlayer from '../videoplayer'
+import VideoPlayer from 'react-native-video-component'
 const screenWidth = Dimensions.get('window').width
 const screenHeight = Dimensions.get('window').height
 
