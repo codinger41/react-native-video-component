@@ -10,7 +10,7 @@
 </p>
 
 
-    React Native: Native Video Component (Android/iOS)
+    React Native Video Component (Android/iOS)
 
 If this project has helped you out, please support us with a star 🌟
 </h1>
