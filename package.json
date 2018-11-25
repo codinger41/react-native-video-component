@@ -1,0 +1,43 @@
+{
+  "name": "react-native-video-component",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest"
+  },
+  "dependencies": {
+    "prop-types": "^15.6.2",
+    "react": "16.6.1",
+    "react-native": "0.57.5"
+  },
+  "devDependencies": {
+    "babel-jest": "23.6.0",
+    "jest": "23.6.0",
+    "metro-react-native-babel-preset": "0.49.2",
+    "react-test-renderer": "16.6.1"
+  },
+  "jest": {
+    "preset": "react-native"
+  },
+  "description": "Simple video player component with easy, slick controls.",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leksyib/react-native-video-component.git"
+  },
+  "keywords": [
+    "react-native-component",
+    "react-native",
+    "video-player"
+  ],
+  "author": "leksyib",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leksyib/react-native-video-component/issues"
+  },
+  "homepage": "https://github.com/leksyib/react-native-video-component#readme"
+}
