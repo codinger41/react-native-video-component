@@ -10,11 +10,12 @@ class VideoPlayer extends Component {
   constructor(props){
     super(props)
     this.state = {
-      muted: props.muted,
-      paused: props.paused,
-      videos: props.videos
+      muted: false,
+      paused: false,
+      activeVideo: props.videos ? this.props.videos[0] : 'ersdc'
     }
   }
+
   renderMuteButton(){
     if(this.state.muted){
       return (
@@ -69,6 +70,29 @@ class VideoPlayer extends Component {
       </TouchableOpacity>
     )
   }
+  renderVideo(){
+    if(this.props.video){
+      return (
+        <Video
+          source={this.props.video ? this.props.video : null}
+          style={this.props.videoStyle ? this.props.videoStyle : styles.video}
+          paused={this.state.paused}
+          muted={this.state.muted}
+          {...this.props}
+        />
+      )
+    }else if(this.state.activeVideo){
+      return (
+        <Video
+          source={this.state.activeVideo ? this.state.activeVideo : null}
+          style={this.props.videoStyle ? this.props.videoStyle : styles.video}
+          paused={this.state.paused}
+          muted={this.state.muted}
+          {...this.props}
+        />
+      )
+    }
+  }
   render() {
     return (
       <View style={styles.container}>
@@ -80,13 +104,7 @@ class VideoPlayer extends Component {
           <View
             style={this.props.videoContainerStyle ? this.props.videoContainerStyle : styles.videoContainer}
           >
-            <Video
-              source={this.props.video ? this.props.video : null}
-              style={this.props.videoStyle ? this.props.videoStyle : styles.video}
-              paused={this.state.paused}
-              muted={this.state.muted}
-              {...this.props}
-            />
+            {this.renderVideo()}
             {this.renderPauseButton()}
             {this.renderMuteButton()}
           </View>
