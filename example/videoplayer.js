@@ -18,6 +18,14 @@ class VideoPlayer extends Component {
     }
   }
 
+  componentDidMount(){
+    setTimeout(() => {
+      this.setState({
+        showControls: false
+      })
+    }, 3000)
+  }
+
   renderMuteButton(){
     if(this.state.showControls){
       if(this.state.muted){
@@ -166,6 +174,11 @@ class VideoPlayer extends Component {
         <TouchableWithoutFeedback 
           onPress={() => {
             this.setState({ showControls: !this.state.showControls })
+            setTimeout(() => {
+              this.setState({
+                showControls: false
+              })
+            }, 3000)
           }}
         >
           <View
