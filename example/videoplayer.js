@@ -87,6 +87,12 @@ class VideoPlayer extends Component {
           source={this.state.activeVideo}
           style={this.props.videoStyle ? this.props.videoStyle : styles.video}
           paused={this.state.paused}
+          onEnd={() => {
+            this.setState({
+              activeVideo: this.props.videos[this.state.activeVideoIndex + 1],
+              activeVideoIndex: this.state.activeVideoIndex + 1,
+            })
+          }}
           muted={this.state.muted}
           {...this.props}
         />
@@ -127,6 +133,15 @@ class VideoPlayer extends Component {
       )
     }
   }
+  renderCaption(){
+    if(this.props.caption){
+      return (
+        <View style={styles.captionContainer}>
+          <Text style={this.props.captionStyle ? this.props.captionStyle : styles.caption}> {this.props.caption} </Text>
+        </View>
+      )
+    }else return <View/>
+  }
   render() {
     return (
       <View style={styles.container}>
@@ -142,6 +157,7 @@ class VideoPlayer extends Component {
             {this.renderMultiVideoButtons()}
             {this.renderPauseButton()}
             {this.renderMuteButton()}
+            {this.renderCaption()}
           </View>
         </TouchableWithoutFeedback>
       </View>
@@ -152,7 +168,9 @@ class VideoPlayer extends Component {
 VideoPlayer.propTypes = {
   video: PropTypes.any,
   videoStyle: PropTypes.object,
-  videos: PropTypes.array
+  videos: PropTypes.array,
+  caption: PropTypes.string,
+  captionStyle: PropTypes.object
 }
 
 const styles = StyleSheet.create({
@@ -204,6 +222,14 @@ const styles = StyleSheet.create({
   nextButton: {
     position: 'absolute',
     right: -150
+  },
+  captionContainer: {
+    position: 'absolute',
+    bottom: 6
+  },
+  caption: {
+    color: '#ffffff',
+    fontSize: 15
   }
 })
 

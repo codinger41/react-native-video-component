@@ -31,6 +31,7 @@ export default class App extends Component {
         <VideoPlayer 
           videos={videos}
           videoContainerStyle={styles.videoContainer}
+          caption={'Multople Videos'}
         />
         <Text>
           Single Video
@@ -38,6 +39,7 @@ export default class App extends Component {
         <VideoPlayer 
           video={require('./video.mp4')}
           videoContainerStyle={styles.videoContainer}
+          caption={'single video'}
         />
       </View>
     )
