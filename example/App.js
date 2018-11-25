@@ -28,7 +28,7 @@ export default class App extends Component {
         <Text>
           Multi Videos
         </Text>
-        <VideoPlayer 
+        <VideoPlayer
           videos={videos}
           videoContainerStyle={styles.videoContainer}
           caption={'Multople Videos'}
