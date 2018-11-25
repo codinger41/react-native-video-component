@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Platform, StyleSheet, Text, View, Dimensions, Image, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
 import Video from 'react-native-video'
 
 const screenWidth = Dimensions.get('window').width
@@ -95,10 +95,12 @@ class VideoPlayer extends Component {
           style={this.props.videoStyle ? this.props.videoStyle : styles.video}
           paused={this.state.paused}
           onEnd={() => {
-            this.setState({
-              activeVideo: this.props.videos[this.state.activeVideoIndex + 1],
-              activeVideoIndex: this.state.activeVideoIndex + 1,
-            })
+            if(this.state.activeVideoIndex < this.props.videos.length){
+              this.setState({
+                activeVideo: this.props.videos[this.state.activeVideoIndex + 1],
+                activeVideoIndex: this.state.activeVideoIndex + 1,
+              })
+            }
           }}
           muted={this.state.muted}
           {...this.props}
@@ -129,10 +131,15 @@ class VideoPlayer extends Component {
               activeOpacity={0.7} 
               style={styles.nextButton}
               onPress={() => {
-                this.setState({
-                  activeVideo: this.props.videos[this.state.activeVideoIndex + 1],
-                  activeVideoIndex: this.state.activeVideoIndex + 1,
-                })
+                console.log(this.state.activeVideoIndex, this.props.videos.length)
+                if((this.state.activeVideoIndex + 1) < this.props.videos.length){
+                  this.setState({
+                    activeVideo: this.props.videos[this.state.activeVideoIndex + 1],
+                    activeVideoIndex: this.state.activeVideoIndex + 1,
+                  })
+                }else{
+                  
+                }
               }}
             >
               <Image source={require('./assets/next.png')} />
@@ -158,7 +165,7 @@ class VideoPlayer extends Component {
       >
         <TouchableWithoutFeedback 
           onPress={() => {
-            this.setState({ muted: !this.state.muted, showControls: !this.state.showControls })
+            this.setState({ showControls: !this.state.showControls })
           }}
         >
           <View
