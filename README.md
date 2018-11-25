@@ -1,8 +1,8 @@
 <h1 align="center">
 
-<!-- <p align="center">
-  <img src="https://lh3.googleusercontent.com/dsJXfHnUx0qvZIB_80F-q0iN18eIqmx6g10bmsVN8R6nEnLQDKvJ9lXCbnPCgDEZMw=s180"/>
-</p> -->
+<p align="center">
+  <img src="assets/screenshot.png"/>
+</p>
 
 <p align="center">
   <a href="https://www.npmjs.com/package/react-native-video-component"><img src="http://img.shields.io/npm/v/react-native-video-component.svg?style=flat" /></a>
