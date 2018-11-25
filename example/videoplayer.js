@@ -12,10 +12,10 @@ class VideoPlayer extends Component {
     this.state = {
       muted: false,
       paused: false,
-      activeVideo: props.videos ? this.props.videos[0] : 'ersdc'
+      activeVideo: props.videos ? this.props.videos[0] : null,
+      activeVideoIndex: props.videos ? 0 : null
     }
   }
-
   renderMuteButton(){
     if(this.state.muted){
       return (
@@ -84,7 +84,7 @@ class VideoPlayer extends Component {
     }else if(this.state.activeVideo){
       return (
         <Video
-          source={this.state.activeVideo ? this.state.activeVideo : null}
+          source={this.state.activeVideo}
           style={this.props.videoStyle ? this.props.videoStyle : styles.video}
           paused={this.state.paused}
           muted={this.state.muted}
@@ -93,20 +93,38 @@ class VideoPlayer extends Component {
       )
     }
   }
-
   renderMultiVideoButtons () {
     return (
       <View style={styles.multiVideoButtons}>
-        <TouchableOpacity activeOpacity={0.7} style={styles.previousButton}>
+        <TouchableOpacity
+          activeOpacity={0.7}
+          style={styles.previousButton}
+          onPress={() => {
+            this.state.activeVideoIndex !== 0 ?
+              this.setState({
+                activeVideo: this.props.videos[this.state.activeVideoIndex - 1],
+                activeVideoIndex: this.state.activeVideoIndex - 1,
+              })
+            : null
+          }}
+        >
           <Image source={require('./assets/previous.png')} />
         </TouchableOpacity>
-        <TouchableOpacity activeOpacity={0.7} style={styles.nextButton}>
+        <TouchableOpacity
+          activeOpacity={0.7} 
+          style={styles.nextButton}
+          onPress={() => {
+            this.setState({
+              activeVideo: this.props.videos[this.state.activeVideoIndex + 1],
+              activeVideoIndex: this.state.activeVideoIndex + 1,
+            })
+          }}
+        >
           <Image source={require('./assets/next.png')} />
         </TouchableOpacity>
       </View>
     )
   }
-
   render() {
     return (
       <View style={styles.container}>
@@ -179,11 +197,11 @@ const styles = StyleSheet.create({
   },
   previousButton: {
     position: 'absolute',
-    left: 90
+    left: -150
   },
   nextButton: {
     position: 'absolute',
-    right: 90
+    right: -150
   }
 })
 

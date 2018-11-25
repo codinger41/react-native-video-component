@@ -6,14 +6,11 @@ const screenHeight = Dimensions.get('window').height
 
 const videos = [
   require('./video.mp4'),
+  require('./vid.mov'),
   require('./video.mp4'),
+  require('./vid.mov'),
   require('./video.mp4'),
-  require('./video.mp4'),
-  require('./video.mp4'),
-  require('./video.mp4'),
-  require('./video.mp4'),
-  require('./video.mp4'),
-  require('./video.mp4')
+  require('./vid.mov')
 ]
 
 export default class App extends Component {
@@ -30,7 +27,6 @@ export default class App extends Component {
       <View style={styles.container}>
         <VideoPlayer 
           videos={videos}
-          video={require('./video.mp4')}
           videoContainerStyle={styles.videoContainer}
         />
       </View>
