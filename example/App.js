@@ -32,6 +32,7 @@ export default class App extends Component {
           videos={videos}
           videoContainerStyle={styles.videoContainer}
           caption={'Multiple Videos'}
+          hideControlsTimeOut={10000}
         />
         <Text>
           Single Video
