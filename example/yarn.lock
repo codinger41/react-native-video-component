@@ -4011,9 +4011,9 @@ react-is@^16.6.1:
   version "16.6.3"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.6.3.tgz#d2d7462fcfcbe6ec0da56ad69047e47e56e7eac0"
 
-react-native-video-component@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/react-native-video-component/-/react-native-video-component-0.0.1.tgz#3c56568d34180c702956116593492b123ef866a5"
+react-native-video-component@0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/react-native-video-component/-/react-native-video-component-0.0.2.tgz#9f0996b725a135c255fc53c7858f8d8198c7100a"
   dependencies:
     prop-types "^15.6.2"
     react "16.6.1"

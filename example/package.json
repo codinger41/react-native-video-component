@@ -10,7 +10,7 @@
     "react": "^16.7.0-alpha.2",
     "react-native": "0.57.5",
     "react-native-video": "^4.0.1",
-    "react-native-video-component": "^0.0.1"
+    "react-native-video-component": "0.0.2"
   },
   "devDependencies": {
     "babel-jest": "23.6.0",
