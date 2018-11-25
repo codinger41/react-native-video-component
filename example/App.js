@@ -30,9 +30,10 @@ export default class App extends Component {
       <View style={styles.container}>
         <VideoPlayer 
           video={require('./video.mp4')}
+          videoContainerStyle={styles.videoContainer}
         />
       </View>
-    );
+    )
   }
 }
 

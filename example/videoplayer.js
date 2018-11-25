@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { Platform, StyleSheet, Text, View, Dimensions, Image, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
 import Video from 'react-native-video'
 
@@ -9,11 +10,11 @@ class VideoPlayer extends Component {
   constructor(props){
     super(props)
     this.state = {
-      muted: false,
-      paused: false
+      muted: props.muted,
+      paused: props.paused,
+      videos: props.videos
     }
   }
-
   renderMuteButton(){
     if(this.state.muted){
       return (
@@ -42,7 +43,6 @@ class VideoPlayer extends Component {
       </TouchableOpacity>
     )
   }
-
   renderPauseButton(){
     if(this.state.paused){
       return (
@@ -63,13 +63,12 @@ class VideoPlayer extends Component {
         activeOpacity={0.7}
         onPress={() => this.setState({ paused: true })}
       >
-        <Image 
+        <Image
           source={require('./assets/pause.png')}
         />
       </TouchableOpacity>
     )
   }
-
   render() {
     return (
       <View style={styles.container}>
@@ -79,31 +78,31 @@ class VideoPlayer extends Component {
           }}
         >
           <View
-            style={styles.videoContainer}
+            style={this.props.videoContainerStyle ? this.props.videoContainerStyle : styles.videoContainer}
           >
             <Video
-              source={require('./video.mp4')}
-              style={styles.video}
+              source={this.props.video ? this.props.video : null}
+              style={this.props.videoStyle ? this.props.videoStyle : styles.video}
               paused={this.state.paused}
               muted={this.state.muted}
-              repeat
+              {...this.props}
             />
             {this.renderPauseButton()}
             {this.renderMuteButton()}
           </View>
         </TouchableWithoutFeedback>
       </View>
-    );
+    )
   }
 }
 
+VideoPlayer.propTypes = {
+  video: PropTypes.any,
+  videoStyle: PropTypes.object,
+  videos: PropTypes.array
+}
+
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'aliceblue',
-  },
   videoContainer: {
     height: screenHeight * 0.4,
     width: screenWidth,
