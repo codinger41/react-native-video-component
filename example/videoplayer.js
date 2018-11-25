@@ -93,6 +93,20 @@ class VideoPlayer extends Component {
       )
     }
   }
+
+  renderMultiVideoButtons () {
+    return (
+      <View style={styles.multiVideoButtons}>
+        <TouchableOpacity activeOpacity={0.7} style={styles.previousButton}>
+          <Image source={require('./assets/previous.png')} />
+        </TouchableOpacity>
+        <TouchableOpacity activeOpacity={0.7} style={styles.nextButton}>
+          <Image source={require('./assets/next.png')} />
+        </TouchableOpacity>
+      </View>
+    )
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -105,6 +119,7 @@ class VideoPlayer extends Component {
             style={this.props.videoContainerStyle ? this.props.videoContainerStyle : styles.videoContainer}
           >
             {this.renderVideo()}
+            {this.renderMultiVideoButtons()}
             {this.renderPauseButton()}
             {this.renderMuteButton()}
           </View>
@@ -156,6 +171,19 @@ const styles = StyleSheet.create({
   playButton: {
     width: 50,
     height: 50
+  },
+  multiVideoButtons: {
+    position: 'absolute',
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  previousButton: {
+    position: 'absolute',
+    left: 90
+  },
+  nextButton: {
+    position: 'absolute',
+    right: 90
   }
 })
 
